@@ -1,0 +1,12 @@
+# dshx-loop-guard 随包自带的默认配置（DSH 加载这个 bundle 时插入）。
+# 实际生效的配置以 profile 里的 cordis.patch.yml 为准，那里有同名条目时会覆盖这里。
+- insert:
+    - id: dshx-loop-guard
+      name: dshx-loop-guard
+      config:
+        providers: [local]   # 只对这些 provider 生效；写成 [] 表示对所有模型生效
+        warnAt: 3            # 同一调用第几次得到相同结果时，在结果后附加提醒
+        stopAt: 5            # 同一调用第几次（结果都相同）时直接拒绝执行
+        hardLimit: 12        # 同一调用一轮内最多执行几次（不管结果是否相同）
+        maxCallsPerTurn: 0   # 一轮内工具调用总数上限，0 = 不限
+        maxDenials: 3        # 一轮内被拒绝几次后直接中止本轮

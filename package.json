@@ -1,0 +1,45 @@
+{
+  "name": "dshx-loop-guard",
+  "version": "1.0.0",
+  "description": "Detect and stop repeated identical tool calls (agent loops), mainly for small local models.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis"
+  ],
+  "author": "callaumyan-design",
+  "license": "MIT",
+  "homepage": "https://github.com/callaumyan-design/dshx-loop-guard#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callaumyan-design/dshx-loop-guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/callaumyan-design/dshx-loop-guard/issues"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "index.js"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "marketplace": {
+      "profiles": [
+        "headless",
+        "web",
+        "desktop"
+      ],
+      "requiresBuildApproval": false,
+      "requiresRestart": true,
+      "manualSteps": false
+    }
+  }
+}
